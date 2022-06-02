@@ -1,0 +1,19 @@
+<mat-card>
+  <form [formGroup]="form" (submit)="onUpload()">
+    <h2>Service Record Upload</h2>
+
+    <div class="document-div">
+      <div class="document-preview" *ngIf="preview !== '' && preview && form.get('file').valid">
+        <img [src]="preview">
+      </div>
+      <div>
+        <button class="document" mat-stroked-button type="button" (click)="filePicker.click()">Upload Service Record</button>
+        <input type="file" name="companyLogo" #filePicker (change)="onFilePicked($event)">
+      </div>
+    </div>
+    <br>
+    <button class="uploadbtn" mat-raised-button type="submit">
+      Upload
+    </button>
+  </form>
+</mat-card>
