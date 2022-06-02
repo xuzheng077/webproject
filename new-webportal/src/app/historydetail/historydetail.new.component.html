@@ -1,0 +1,114 @@
+<mat-card id="page-top" style="height: 100%;">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-dark text-white p-0" style="width: 218px;height: 404px;margin: 0px;">
+          <div class="container-fluid d-flex flex-column p-0">
+              <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="/" style="width: 219px;">
+                  <div class="sidebar-brand-icon rotate-n-15"></div>
+                  <div class="sidebar-brand-text mx-3" style="width: 178px;height: 47px;">
+                    <span style="padding: 0px;margin: -12px;">
+                      Wisecar&nbsp;&nbsp;
+                      <img data-bs-hover-animate="pulse" src="../../../../../assets/index/img/logo_pic.png">
+                    </span>
+                  </div>
+              </a>
+              <hr class="sidebar-divider my-0">
+              <br>
+              <br>
+              <br>
+              <br>
+              <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                <li class="nav-item" role="presentation"><a type="button" (click)="goToHistory()" style="text-decoration:  underline;cursor: pointer;color: orange;"><b>All Shared Vehicles</b></a></li>
+                <br>
+                <li class="nav-item" role="presentation"><a type="button" (click)="goToIndex()" style="text-decoration: underline;cursor: pointer;color: orange;"><b>Current Shared Vehicles</b></a></li>
+              </ul>
+          </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <div class="container-fluid">
+                    <h3 class="text-dark mb-4">Vehicle Details</h3>
+                    <div class="row mb-3">
+                        <div class="col-lg-4">
+                            <div class="card mb-3">
+                                <div class="card-body text-center shadow">
+                                    <img class="rounded-circle mb-3 mt-4" [src]="DomSanitizationService.bypassSecurityTrustUrl(user_image)" width="160" height="160">
+                                    <h1>{{user_name}}</h1>
+                                    <p>{{email_address}}</p>
+                                    <p class="invisible">Employee: Contractor</p>
+                                    <div class="mb-3"></div><button class="btn btn-primary btn-sm invisible" type="button">Change Photo</button>
+                                </div>
+                            </div>
+                            <div class="card-body invisible">
+                              <h4 class="small font-weight-bold">Start Date:<span class="float-right">01-July-2019</span></h4>
+                              <h4 class="small font-weight-bold">End Date:<span class="float-right">30-June-2020</span></h4>
+                          </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card shadow mb-3">
+                                        <div class="card-header py-3 form-inline">
+                                          <img class="rounded-circle mb-3 mt-4" [src]="DomSanitizationService.bypassSecurityTrustUrl(current_image)" width="70" height="70" style="margin-right: 10px">
+                                          <h1>{{current_make_name}}, {{current_model_name}}, {{current_registration_no}}</h1>
+                                        </div>
+                                        <div class="card-body">
+                                          <div class="form-row">
+                                            <div class="col-auto" *ngFor="let entry of current_vehicle_image_list"><img [src]="DomSanitizationService.bypassSecurityTrustUrl('data:image/png;base64,'+entry.image)" (click)="OnImageClick(entry)" height="100"></div>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <div class="card shadow mb-3">
+                                        <div class="card-header py-3 invisible">
+                                        </div>
+                                    </div>
+                                    <div class="card shadow">
+                                        <div class="card-header py-3">
+                                            <h1>Claims and Invoices</h1>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Date</th>
+                                                            <th>Mileage</th>
+                                                            <th>Claim Account</th>
+                                                            <th>Documents</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr *ngFor="let entry of current_claim_list">
+                                                            <td>{{entry.date}}</td>
+                                                            <td>{{entry.total_km}} km, {{entry.total_time}} mins</td>
+                                                            <td>${{entry.claim_amount}}</td>
+                                                            <td>
+                                                              <button class="btn btn-primary" type="button" (click)="getParkingReceipt(entry)">Parking Receipt</button>
+                                                              &nbsp;&nbsp;
+                                                              <button class="btn btn-primary" type="button" (click)="getFuelReceipt(entry)">Fuel Receipt</button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © wisecar 2020</span></div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="../../assets/detail/js/jquery.min.js"></script>
+    <script src="../../assets/detail/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../assets/detail/js/chart.min.js"></script>
+    <script src="../../assets/detail/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="../../assets/detail/js/theme.js"></script>
+</mat-card>

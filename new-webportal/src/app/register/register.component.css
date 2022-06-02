@@ -1,0 +1,158 @@
+.logo_name_text{
+  display: flex;
+  justify-content: center;
+}
+
+.customer_registration{
+  color: white;
+  text-align: center;
+  font-size: x-large;
+  font-weight: 700;
+  text-shadow:gainsboro;
+  margin-top: 20%;
+}
+.company_name{
+  margin-top: 10%;
+  text-align: center;
+}
+
+.register_form{
+  width: 100%;
+  height: 100%;
+  background-image: url("../../assets/images/form_back.png");
+  background-size: cover;
+  text-align: center;
+}
+
+input{
+  width: 60%;
+  color:black;
+  background-color: silver;
+  border-radius: 10px;
+  border: 2px solid orange;
+}
+
+mat-select{
+  width: 60%;
+  color:black;
+  background-color: silver;
+  border-radius: 10px;
+  border: 2px solid orange;
+}
+
+mat-form-field{
+  width: 40%;
+  margin-left: 10%;
+}
+
+form{
+  vertical-align: center;
+  text-align: center;
+  width: 60%;
+  height: 60%;
+  margin: auto;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+button{
+  margin-right: 8px;
+  background-color: orange;
+  border-radius: 10px;
+  border: 5px solid orange;
+}
+
+mat-label{
+  color: white;
+  font-weight: bold;
+}
+
+mat-card{
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  background-image: url("../../assets/images/login_page_back.png");
+  background-size: cover;
+  /* background-color: black; */
+}
+
+mat-spinner{
+  margin: auto;
+  color: aliceblue;
+}
+
+input[type="file"]{
+  visibility: hidden;
+}
+
+.logo-preview{
+  height: 5rem;
+  margin-left: -69%;
+}
+
+.logo-preview img{
+  height: 100%;
+}
+.logo-div{
+  margin-left: 21%;
+}
+
+.ml1{
+  margin-left: 15%;
+}
+
+.ml2{
+  margin-left: 21%;
+}
+.ml3{
+  margin-left: 21%;
+}
+.ml4{
+  margin-left: 9%;
+}
+.ml5{
+  margin-left: 9%;
+}
+.ml6{
+  margin-left: 9%;
+}
+.ml7{
+  margin-left: 9%;
+}
+.ml8{
+  margin-left: 9%;
+}
+.ml9{
+  margin-left: 9%;
+}
+
+.mff1{
+  margin-left: 5%;
+}
+
+.mff2{
+  margin-left: 5%;
+}
+.mff3{
+  margin-left: 5%;
+}
+.dropdown-country{
+  margin-left: 5%;
+}
+.dropdown-state{
+  margin-left: 7%;
+}
+.mff4{
+  margin-left: 3.9%;
+}
+.mff5{
+  margin-left: 2%;
+}
+.mff6{
+  margin-left: 7.5%;
+}
+.mff7{
+  margin-left: 5%;
+}
+
+

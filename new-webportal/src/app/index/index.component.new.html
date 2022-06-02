@@ -1,0 +1,94 @@
+<mat-card id="page-top" style="height: 100%;">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-dark text-white p-0" style="width: 218px;height: 1000px;margin: 0px;">
+            <div class="container-fluid d-flex flex-column p-0">
+                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="/" style="width: 219px;">
+                    <div class="sidebar-brand-icon rotate-n-15"></div>
+                    <div class="sidebar-brand-text mx-3" style="width: 178px;height: 47px;">
+                      <span style="padding: 0px;margin: -12px;">
+                        Wisecar&nbsp;&nbsp;
+                        <img data-bs-hover-animate="pulse" src="../../assets/index/img/logo_pic.png">
+                      </span>
+                    </div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <br>
+                <br>
+                <br>
+                <br>
+                <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item" role="presentation">
+                      <a type="button" (click)="goToHistory()" style="text-decoration: underline;cursor: pointer;color: orange;"><b>All Shared Vehicles</b></a>
+                    </li>
+                    <br>
+                    <li class="nav-item" role="presentation"></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top" style="height: 90px;">
+                    <div class="container-fluid">
+                      <span style="padding: 0px;margin: -12px;">
+                        <p class="navbar-brand" style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{customerName}} &nbsp;</p>
+                        <img data-bs-hover-animate="pulse" *ngIf="DomSanitizationService.bypassSecurityTrustUrl(image)" [src]="DomSanitizationService.bypassSecurityTrustUrl(image)" style="width:70px;height:70px;border-radius:80px;border: grey solid 1px;">
+                      </span>
+                        <!-- <ul class="nav navbar-nav flex-nowrap ml-auto">
+                            <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-search"></i></a>
+                                <div class="dropdown-menu dropdown-menu-right p-3 animated--grow-in" role="menu" aria-labelledby="searchDropdown">
+                                    <form class="form-inline mr-auto navbar-search w-100">
+                                        <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="Search for ...">
+                                            <div class="input-group-append"><button class="btn btn-primary py-0" type="button"><i class="fas fa-search"></i></button></div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+                        </ul> -->
+                    </div>
+                </nav>
+                <div class="container-fluid">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                                <table class="table my-0" id="dataTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Owner</th>
+                                            <th>Registration</th>
+                                            <th>Start Date</th>
+                                            <th style="width: 95px;">End Date</th>
+                                            <th style="width: 95px;">Days</th>
+                                            <th style="width: 95px;">Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let entry of results" (click)="goToDetail(entry)">
+                                            <td style="width: 106px;">{{ entry.user_name }} &nbsp;</td>
+                                            <td style="width: 4px;">{{ entry.registration_no }}</td>
+                                            <td style="width: 119px;">{{ entry.date }}</td>
+                                            <td style="width: 120px;">{{ entry.recurring_end_date }}</td>
+                                            <td style="height: 39px;width: 75px;margin: 0px;">{{entry.recurring_days}}</td>
+                                            <td>{{ entry.start_time }}  -  {{ entry.end_time }}</td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr></tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © wisecar 2020</span></div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="../../assets/index/js/jquery.min.js"></script>
+    <script src="../../assets/index/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="../../assets/index/js/script.min.js"></script>
+</mat-card>

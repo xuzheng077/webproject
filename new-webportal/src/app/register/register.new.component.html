@@ -1,0 +1,78 @@
+<mat-card class="bg-dark">
+  <div class="container">
+    <div class="card shadow-lg o-hidden border-0 my-5">
+      <div class="card-body p-0">
+        <div class="row">
+          <div class="col-lg-5 d-none d-lg-flex">
+            <div class="flex-grow-1 bg-register-image" style="background-image: url('../../assets/detail/img/dogs/image2.jpeg');"></div>
+          </div>
+          <div class="col-lg-7">
+            <div class="p-5">
+              <div class="text-center">
+                <h4 class="text-dark mb-4">Create Company Account</h4>
+              </div>
+              <form class="user" [formGroup]="form" (submit)="onRegister()" *ngIf="!isLoading">
+                <div class="form-group row">
+                  <div class="col-sm-12 mb-3 mb-sm-0">
+                    <input class="form-control form-control-user" type="text" id="CompanyName" placeholder="Company Name" name="company_name" formControlName="companyName"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input class="form-control form-control-user" type="email" id="InputEmail" aria-describedby="emailHelp" placeholder="Email Address" name="email" formControlName="email"/>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-12 mb-3 mb-sm-0">
+                    <input class="form-control form-control-user" type="password" id="PasswordInput" placeholder="Password" name="password" formControlName="password"/>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-12 mb-3 mb-sm-0">
+                    <input class="form-control form-control-user" type="password" id="ConfirmPasswordInput" placeholder="Confirm Password" name="confirmPassword" formControlName="confirmPassword"/>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-12 mb-3 mb-sm-0">
+                    <input class="form-control form-control-user" type="text" id="Address1" placeholder="Address Line 1" name="address1" formControlName="companyAddr1"/>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-12 mb-3 mb-sm-0">
+                    <input class="form-control form-control-user" type="text" id="Address2" placeholder="Address Line 2" name="address2" formControlName="companyAddr2"/>
+                  </div>
+                </div><div class="form-group row">
+                  <div class="col-sm-12 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="Webaddress" placeholder="Web Address" name="webaddress" formControlName="webAddr"></div>
+              </div>
+              <div class="form-group row">
+                  <div class="col-sm-12 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="Postcode" placeholder="Postcode" name="postcode" formControlName="postCode"></div>
+              </div>
+              <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="Country" placeholder="Country" name="country" formControlName="country"></div>
+                  <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="State" placeholder="State" name="state" formControlName="state"></div>
+              </div>
+              <div class="form-group">
+                <div style="height: 5rem; margin-bottom: 5px;" *ngIf="logoPreview !== '' && logoPreview && form.get('image').valid">
+                  <img [src]="logoPreview" [alt]="form.value.companyName" style="height: 100%;">
+                </div>
+                <div>
+                  <button class="btn btn-primary text-white btn-user" type="button" (click)="filePicker.click()">Upload Company Logo</button>
+                  <input type="file" name="companyLogo" #filePicker (change)="onImagePicked($event)" style="visibility: hidden;">
+                </div>
+              </div>
+                <button class="btn btn-primary btn-block text-white btn-user" type="submit">Register Account</button>
+                <hr/>
+              </form>
+              <div class="text-center">
+                <a type="button" class="small text-primary" (click)="goToLogin()">Already have an account? Login!</a>
+                <!-- <a class="small" href="/">Already have an account? Login!</a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../../assets/detail/js/jquery.min.js"></script>
+  <script src="../../assets/detail/bootstrap/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+  <script src="../../assets/detail/js/theme.js"></script>
+</mat-card>
