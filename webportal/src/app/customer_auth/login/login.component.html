@@ -1,0 +1,44 @@
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <div class="logo_name_text">
+    <div class="left">
+      <div class="company_logo">
+        <img src="../../../assets/images/logo_pic.png">
+      </div>
+    </div>
+    <div class="right">
+      <div class="company_name">
+        <img src="../../../assets/images/wisecar.png">
+      </div>
+      <div class="web_portal">
+        <h2>Customer Portal</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="login_form">
+    <form [formGroup]="form" (submit)="onLogin()" *ngIf="!isLoading">
+      <mat-label>Email ID:</mat-label>
+      <mat-form-field class="mff1">
+        <input type='email' formControlName="email" required email>
+        <mat-error *ngIf="form.get('email').invalid">Please enter a valid email</mat-error>
+      </mat-form-field>
+      <br>
+      <mat-label>Password:</mat-label>
+      <mat-form-field class="mff2">
+        <input type='password' formControlName="password" required>
+        <mat-error *ngIf="form.get('password').invalid">Please enter the password</mat-error>
+      </mat-form-field>
+      <br>
+      <div>
+
+      </div>
+      <button
+      class="login"
+      type="submit">Login</button>
+
+      <button type="button"
+      (click)="goBackToRegister()">Go Back To Register</button>
+    </form>
+  </div>
+</mat-card>

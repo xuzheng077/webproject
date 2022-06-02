@@ -1,0 +1,16 @@
+div {
+  width: 100%;
+  height: 100%;
+  background-color: cadetblue;
+  text-align: center;
+}
+
+button {
+  background-color: lightblue;
+  margin: auto;
+}
+
+h2,h3{
+  margin: auto;
+}
+

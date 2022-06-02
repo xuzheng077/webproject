@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WiseCar Record Upload</title>
+    <link href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <h2 class="h2">WiseCar Record Upload</h2>
+          <hr class="hr" />
+          <form
+            id="form1"
+            method="post"
+            action="http://7ce7ccc8008dec603016594c02f76d60-1846191374.ap-southeast-2.elb.amazonaws.com/api/v1/servicerecords/servicecenterupload"
+            enctype="multipart/form-data"
+          >
+            <div class="form-group">
+              <label for="inputFile">Record File</label>
+              <input
+                type="file"
+                class="form-control-file"
+                name="inputFile"
+                id="inputFile"
+              />
+            </div>
+            <input
+              type="text"
+              name="identifier"
+              id="identifier"
+              style="visibility: hidden;"
+            />
+            <br />
+            <button type="submit" class="btn btn-primary">Upload</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    function getQueryVariable(variable) {
+      var query = window.location.search.substring(1);
+      var vars = query.split("&");
+      for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split("=");
+        if (pair[0] == variable) {
+          return pair[1];
+        }
+      }
+      return false;
+    }
+    $(function () {
+      $("#form1").ajaxForm(function (data) {
+        if (data.message == "success") {
+
+          $.post(
+            "http://13.236.209.122:3000/api/v1/servicerecords/blockchaininvoke",
+            {
+              identifier: identifier,
+              record_type: "service_record",
+              ecrypt_hash: data.encrypt_hash,
+              service_file_location: data.s3_temp_path,
+            },
+            function (data, status) {
+              //console.log(1111);
+              if(data.message == "Transaction has been submitted"){
+                alert("Uploading successful");
+              }
+            }
+          );
+        }
+      });
+    });
+
+    var identifier = getQueryVariable("identifier");
+    document.getElementById("identifier").value = identifier;
+    //console.log('after: '+document.getElementById('identifier').value);
+  </script>
+</html>

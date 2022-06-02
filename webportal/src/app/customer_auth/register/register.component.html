@@ -1,0 +1,75 @@
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form [formGroup]="form" (submit)="onRegister()" *ngIf="!isLoading">
+    <h2>Customer Registration</h2>
+    <mat-form-field>
+      <input matInput type="text" formControlName="companyName" placeholder="Company Name">
+      <mat-error *ngIf="form.get('companyName').invalid">Please enter the company name</mat-error>
+    </mat-form-field>
+    <div class="logo-div">
+      <div class="logo-preview" *ngIf="logoPreview !== '' && logoPreview && form.get('image').valid">
+        <img [src]="logoPreview" [alt]="form.value.companyName">
+      </div>
+      <div>
+        <button class="logo" mat-stroked-button type="button" (click)="filePicker.click()">Upload Logo (Optional)</button>
+        <input type="file" name="companyLogo" #filePicker (change)="onImagePicked($event)">
+      </div>
+    </div>
+    <br>
+    <mat-form-field>
+      <input matInput type="text" formControlName="companyAddr1" placeholder="Company Address Line 1">
+      <mat-error *ngIf="form.get('companyAddr1').invalid">Please enter the company Address</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput type="text" formControlName="companyAddr2" placeholder="Company Address Line 2">
+      <mat-error *ngIf="form.get('companyAddr2').invalid">Please enter the company Address</mat-error>
+    </mat-form-field>
+    <br>
+    <div>
+      <span>
+        <mat-form-field class="dropdown-country">
+          <mat-select id="country" formControlName="country" placeholder="Country" (selectionChange)="onSelect()">
+            <mat-option value="0">Select</mat-option>
+            <mat-option *ngFor="let country of countries" value="{{ country.id }}">{{ country.name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </span>
+      <span>
+        <mat-form-field class="dropdown-state">
+          <mat-select id="state" formControlName="state" placeholder="State">
+            <mat-option *ngIf="selectedCountry.id == 0" value="0">Select</mat-option>
+            <mat-option *ngFor="let state of states" value="{{ state.id }}">{{ state.name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </span>
+    </div>
+    <mat-form-field>
+      <input matInput type="text" formControlName="postCode" placeholder="Post Code">
+      <mat-error *ngIf="form.get('postCode').invalid">Please enter the post code</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput type="text" formControlName="webAddr" placeholder="Web Address">
+      <mat-error *ngIf="form.get('webAddr').invalid">Please enter the company web address</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput type="email" formControlName="email" placeholder="Email">
+      <mat-error *ngIf="form.get('email').invalid">Please enter the valid company email</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput type="password" formControlName="password" placeholder="Password">
+      <mat-error *ngIf="form.get('password').invalid">Please enter the password</mat-error>
+    </mat-form-field>
+    <br>
+    <button class="register" mat-raised-button type="submit">
+      Register
+    </button>
+
+    <button class="login" type="button"
+    mat-raised-button
+    (click)="goToLogin()">Already registered? <u>Sign In</u></button>
+  </form>
+</mat-card>

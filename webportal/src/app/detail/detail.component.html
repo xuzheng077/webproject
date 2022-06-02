@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12"  style="text-align:center;">
+      <img [src]="DomSanitizationService.bypassSecurityTrustUrl(user_image)">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12"  style="text-align:center;">
+      <p>{{user_name}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12"  style="text-align:center;">
+      <p>{{email_address}}</p>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12"  style="text-align:center;">
+      <div class="cdk-virtual-scroll">
+        <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="viewport">
+          <div *cdkVirtualFor="let vehicle of vehicle_list" class="item">
+            <img [src]="DomSanitizationService.bypassSecurityTrustUrl('data:image/png;base64,'+vehicle.image)" (click)="OnImageClick(vehicle)">
+          </div>
+        </cdk-virtual-scroll-viewport>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12" style="text-align: center;">
+      <p>{{current_registration_no}}</p>
+      <p>{{current_driver_license}}</p>
+      <br>
+      <p>{{current_service_date}}</p>
+      <p>{{current_next_service_date}}</p>
+      <a href="{{current_service_record_url}}">View Service Record</a>
+      <br>
+      <p>{{current_registration_due}}</p>
+    </div>
+  </div>
+</div>
+
+

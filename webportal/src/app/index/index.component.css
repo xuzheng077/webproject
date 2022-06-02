@@ -1,0 +1,73 @@
+.company-logo{
+  width:100px;
+  height:100px;
+  border-radius:100px;
+  border: orange solid 3px;
+}
+
+.name-id-logo{
+  display: flex;
+  justify-content: center;
+}
+
+.company-logo-div{
+  margin-left: 3%;
+}
+
+.name-id{
+  text-align: center;
+}
+
+.c-name{
+  margin-top: 15%;
+  font-weight: bold;
+}
+
+.c-id{
+  color: silver;
+}
+
+.list{
+  background-color: cadetblue;
+  text-align: center;
+  border-radius: 80px;
+  border: black solid 3px;
+  padding: 5px;
+}
+
+.heading{
+  color: white;
+  font-weight: bold;
+  font-size: x-large;
+  padding-top: 1%;
+}
+
+.first-col{
+  margin-left: 0%;
+}
+
+.second-col{
+  margin-left: 5%;
+}
+
+.third-col{
+  margin-left: 5%;
+}
+
+.fourth-col{
+  margin-left: 5%;
+}
+
+.entries{
+  padding-top: 1%;
+  padding-bottom: 1%;
+  font-size: x-large;
+}
+
+a{
+  color: black;
+  font-weight: bold;
+  background-color: lightblue;
+  padding: 5px;
+  margin: 5px;
+}

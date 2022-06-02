@@ -1,0 +1,26 @@
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+
+img{
+  width: 100%;
+	height: auto;
+	max-width: 60%;
+  max-height: 60%;
+}
+
+mat-toolbar{
+  background-color: cadetblue;
+  height: 10%;
+}

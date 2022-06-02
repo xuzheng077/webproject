@@ -1,0 +1,61 @@
+<mat-card>
+  <div style="text-align: right;">
+    <img src="../../assets/images/wisecar_char.png" />
+  </div>
+
+  <br/>
+  <div class="name-id-logo">
+    <div class="name-id">
+      <div class="c-name">
+        <h2>{{ customerName }}</h2>
+      </div>
+      <div class="c-id">
+        <h3>Customer ID: {{ customerId }}</h3>
+      </div>
+    </div>
+
+    <div class="company-logo-div">
+      <img class="company-logo" [src]="DomSanitizationService.bypassSecurityTrustUrl(image)"/>
+    </div>
+  </div>
+
+  <br/>
+
+  <!-- <table mdbTable mdbTableScroll scrollY="true" maxHeight="200" bordered="true">
+    <thead>
+      <tr>
+        <th *ngFor="let head of headElements; let i = index" scope="col">{{head}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entry of results; let i = index">
+        <th>{{ entry.user_name }}</th>
+        <td>{{ entry.registration_no }}</td>
+        <td>{{ entry.date }} {{ entry.recurring_end_date }}</td>
+        <td>{{ entry.start_time }}  -  {{ entry.end_time }}</td>
+      </tr>
+    </tbody>
+  </table> -->
+
+
+
+  <div class="list">
+    <div class="heading">
+      <span class="first-col">Owner</span>
+      <span class="second-col">Registration</span>
+      <span class="third-col">Date_From - Date_To, Days</span>
+      <span class="fourth-col">Time</span>
+    </div>
+    <div class="entries" *ngFor="let entry of results">
+      <a (click)="goToDetail(entry)">
+        <span class="first-col">{{ entry.user_name }} </span>
+        <span class="second-col">{{ entry.registration_no }} </span>
+        <span class="third-col">{{ entry.date }} {{ entry.recurring_end_date }}</span>
+        <span class="fourth-col">{{ entry.start_time }}  -  {{ entry.end_time }}</span>
+      </a>
+    </div>
+  </div>
+
+
+
+</mat-card>
